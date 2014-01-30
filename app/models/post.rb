@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true
 
   has_many :relations
-  has_many :tags, through: :relations
+  has_many :tags, :through => :relations
 
 
 end

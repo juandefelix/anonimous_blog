@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>All Posts</h2>
+  <%@all.each do |post|%>
+  <div>
+      <h3><%=post.title%></h3>
+       <p><%=post.body%></p>
+       <p>Tags:</p>
+       <%post.tags.to_a.each do |t|%>
+       <p><%=t.name%></p>
+       <%end%>
+       <br>
+  </div>
+  <%end%>
+</div>
+</div>

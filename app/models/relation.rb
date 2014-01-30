@@ -1,3 +1,4 @@
 class Relation < ActiveRecord::Base
-  validates :name, uniqueness: true
+  belongs_to :post
+  belongs_to :tag
 end

@@ -6,26 +6,35 @@ get '/' do
 end
 
 post '/create' do
+
   title = params[:title]
   body = params[:body]
   tags = params[:tags].split(', ')
 
-  #Creating a Post
-  Post.create!(:title => title, :body => body)
-  @post_id = Post.last.id
+  begin
+    #Creating a Post
+    Post.create!(:title => title, :body => body)
+    @post_id = Post.last.id
 
-  #Creating a Tag
-  tag_index_array = []
-  tags.each do |t|
-    tag_index_array << Tag.find_or_create_by(:name => t).id
-  end
+    #Creating a Tag
+    tag_index_array = []
+    tags.each do |t|
+      tag_index_array << Tag.find_or_create_by(:name => t).id
+    end
 
-  #Creating the relation
-  tag_index_array.each do |t|
+    #Creating the relation
+    tag_index_array.each do |t|
     Relation.create!(:post_id => @post_id, :tag_id => t)
+    end
+    @my_post
+  rescue => e
+    # puts e
+    redirect "/error/#{e}"
   end
-  @my_post
-  "Success!!"
+end
+
+get '/error/:error' do
+  erb :error
 end
 
 get'/post/:id' do
@@ -71,3 +80,5 @@ get '/tag/:name' do
   # binding.pry
   erb :tag
 end
+
+

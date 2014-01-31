@@ -26,7 +26,8 @@ post '/create' do
     tag_index_array.each do |t|
     Relation.create!(:post_id => @post_id, :tag_id => t)
     end
-    @my_post
+    # @my_post
+    redirect '/all'
   rescue => e
     # puts e
     redirect "/error/#{e}"

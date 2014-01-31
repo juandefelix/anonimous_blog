@@ -54,6 +54,9 @@ audio:not([controls]) {
 /* ==========================================================================
    Base
    ========================================================================== */
+ul, menu, dir {
+  -webkit-padding-start: 0px;
+}
 
 /**
  * 1. Set default font family to sans-serif.
@@ -310,6 +313,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
+
 
 button,
 html input[type="button"], /* 1 */

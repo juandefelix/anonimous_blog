@@ -1,14 +1,32 @@
 body {
   background-color: #FFEBEB;
+  color: #454047;
 }
+
+.top-nav{
+    background-color: #454047;
+    color: #FFEBEB;
+    height: 64px;
+    width: 100%;
+    line-height: 64px;
+    position: fixed;
+    top: 0px;
+}
+
+.top-nav h1 {
+    margin: 0px 200px;
+    font-size: 32px;
+}
+
 .container {
-  margin: 20px auto;
+  margin: 154px auto 20px auto;
   width: 600px;
-  padding: 10px 10px 10px 10px;
-  border: 1px solid #121111;
+  padding: 0px 10px 10px 10px;
+  border: 1px solid #454047;
   border-radius: 5px;
   text-align: center;
 }
+
 .post {
   border: 1px solid #121111;
   border-radius: 5px;
@@ -18,12 +36,11 @@ body {
 }
 
 .post a {
-  /*text-decoration: none;*/
   color: #454047;
 }
 
 .post a:hover {
-  /*text-decoration: none;*/
+
   color: #A194A6;
 }
 
@@ -37,7 +54,18 @@ body {
 
 .menu li a{
   padding: 0px 5px;
-  color: #121111;
+  color: #454047;
+}
+
+#topnavlink {
+  padding: 5px;
+  text-decoration: none;
+  color: #FFEBEB;
+}
+
+#topnavlink:hover{
+  border: solid 1px #FFEBEB;
+  border-radius: 5px;
 }
 
 th {
@@ -50,13 +78,25 @@ th {
   border-radius: 7px;
   margin: 20px 7px;
   background-color: #E6D4ED;
+  text-decoration: none;
   color: #454047;
 }
 
 .button a {
    text-decoration: none;
+   color: #454047;
 }
 
+.floatleft {
+  float: left;
+}
 
+.floatright {
+  float: right;
+}
 
+#all {
+  width: 15%;
+  margin: 0px auto 10px auto;
+}
 

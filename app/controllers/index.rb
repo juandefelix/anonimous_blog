@@ -70,15 +70,24 @@ end
 
 get '/delete/:id' do
   Post.destroy(params['id'].to_i)
+  Relation.where(post_id: 1).each { |s| s.destroy }
   erb :erased
   # redirect '/all'
 end
 
+get '/find' do
+  erb :find
+end
+
+post '/find' do
+"Success"
+  name = params[:tag]
+  redirect "/tag/#{name}"
+end
+
 get '/tag/:name' do
-  # puts "holaaaaa"
   tag = Tag.find_by(:name => params[:name])
   @all = tag.posts.to_a
-  # binding.pry
   erb :tag
 end
 

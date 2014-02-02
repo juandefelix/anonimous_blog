@@ -54,7 +54,6 @@ body {
 
 .menu li a{
   padding: 0px 5px;
-  color: #454047;
 }
 
 #topnavlink {
@@ -77,14 +76,15 @@ th {
   padding: 5px;
   border-radius: 7px;
   margin: 20px 7px;
-  background-color: #E6D4ED;
+  background-color: #454047;
   text-decoration: none;
-  color: #454047;
+  color: #FFEBEB;
 }
 
 .button a {
-   text-decoration: none;
-   color: #454047;
+  text-decoration: none;
+  background-color: #454047;
+  color: #FFEBEB;
 }
 
 .floatleft {

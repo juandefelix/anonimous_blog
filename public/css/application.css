@@ -27,6 +27,15 @@ body {
   text-align: center;
 }
 
+.border {
+  width: 600px;
+  margin: 20px auto;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #454047;
+  text-align: center;
+}
+
 .post {
   border: 1px solid #121111;
   border-radius: 5px;

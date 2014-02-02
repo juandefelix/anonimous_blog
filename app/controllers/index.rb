@@ -68,10 +68,10 @@ post '/edit' do
   redirect "/all"
 end
 
-post '/delete/:id' do
-  # puts params['id'].to_i.class
+get '/delete/:id' do
   Post.destroy(params['id'].to_i)
-  redirect '/all'
+  erb :erased
+  # redirect '/all'
 end
 
 get '/tag/:name' do
@@ -82,4 +82,8 @@ get '/tag/:name' do
   erb :tag
 end
 
+get'/test/' do
+  # params[:post]
+  "Success"
+end
 

@@ -1,9 +1,7 @@
-<%= erb :_topnav%>
-
 <div class="container">
   <h2>All Posts</h2>
   <%@all.each do |post|%>
-  <div class= "post">
+    <div class= "post">
       <h3><a href ="/post/<%=post.id%>"><%=post.title%></a></h3>
        <p><%=post.body%></p>
        <p>Tags:</p>
@@ -11,8 +9,14 @@
        <p><%=t.name%></p>
        <%end%>
        <br>
-  </div>
+    </div>
   <%end%>
+</div>
+
+<div class='border'>
   <%= erb :_menu %>
 </div>
-</div>
+
+
+
+

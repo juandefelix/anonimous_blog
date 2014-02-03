@@ -87,7 +87,7 @@ end
 
 get '/tag/:name' do
   tag = Tag.find_by(:name => params[:name])
-  @all = tag.posts.to_a
+  @all = tag.posts
   erb :tag
 end
 

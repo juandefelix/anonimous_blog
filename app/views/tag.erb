@@ -1,13 +1,15 @@
-<%= erb :_topnav%>
-
 <div class="container">
   <h2>All Posts with tag <span>'<%=params[:name]%>'</span></h2>
   <%@all.each do |post|%>
-  <div>
-      <h3><%=post.title%></h3>
+  <div class="post">
+      <h3><a href="/post/<%=post.id%>"><%=post.title%></a></h3>
        <p><%=post.body%></p>
        <br>
   </div>
   <%end%>
+</div>
+
+<div class="border">
+  <%= erb :_menu%>
 </div>
 

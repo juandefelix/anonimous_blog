@@ -4,11 +4,13 @@
   <h3>Create a post</h3>
    <form action="/edit" method="post">
     Title: &nbsp;&nbsp;<input type="text" name="title" value="<%=@post.title%>" ><br><br>
-    Text: &nbsp;&nbsp;<input type="text" name="body" value="<%=@post.body%>"><br><br>
+    Text: &nbsp;&nbsp;<textarea name="body"> <%=@post.body%></textarea><br><br>
 
     <input type="hidden" name="id" value="<%=@post.id%>">
-    <input type="submit" value="Edit">
-
-
+    <input class='button' type="submit" value="Edit">
   </form>
+</div>
+
+<div class="border">
+  <%= erb :_menu %>
 </div>

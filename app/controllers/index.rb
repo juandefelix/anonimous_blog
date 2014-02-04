@@ -40,6 +40,7 @@ end
 
 get'/post/:id' do
 
+  @id = params[:id]
   @post = Post.find(params[:id].to_i)
   @tags = @post.tags.to_a
 # puts @tags
@@ -65,14 +66,13 @@ post '/edit' do
   my_post.title = params['title']
   my_post.body = params['body']
   my_post.save
-  redirect "/all"
+  redirect "/post/#{params[:id]}"
 end
 
 get '/delete/:id' do
   Post.destroy(params['id'].to_i)
   Relation.where(post_id: 1).each { |s| s.destroy }
   erb :erased
-  # redirect '/all'
 end
 
 get '/find' do
@@ -80,9 +80,10 @@ get '/find' do
 end
 
 post '/find' do
-"Success"
+
   name = params[:tag]
-  redirect "/tag/#{name}"
+  redirect "/tag/#{name}" unless Tag.find_by(:name => params[:name]) == nil
+  redirect "/error/no%20tag%20found"
 end
 
 get '/tag/:name' do

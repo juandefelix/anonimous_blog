@@ -3,16 +3,18 @@
   <!-- <a href="/create">Create Users</a><br> -->
   <h3><%=@post.title%></h3><br>
    <p><%=@post.body%></p><br>
-   <p>Tags: &nbsp;
-   <%@tags.each do |t|%>
-   <%=t.name%></p>
+
+   <% unless @tags.count == 0 %>
+     <p>Tags: &nbsp;</p>
+     <%@tags.each do |t|%>
+     <p><a class="link" href="/tag/<%=t.name%>"><%=t.name%></a></p>
+     <%end%>
    <%end%>
+
+   <a class='button' href="/edit/<%=@post.id%>">Edit this Post</a>
    <a class='button' href="/delete/<%=@post.id%>">Delete this Post</a>
 </div>
 
 <div class="border">
   <%= erb :_menu %>
 </div>
-
-
-<!-- href="/delete/<%=params[:id]%>" -->

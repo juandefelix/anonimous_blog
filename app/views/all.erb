@@ -4,10 +4,17 @@
     <div class= "post">
       <h3><a href ="/post/<%=post.id%>"><%=post.title%></a></h3>
        <p><%=post.body%></p>
-       <p>Tags:</p>
-       <%post.tags.to_a.each do |t|%>
-       <p><%=t.name%></p>
+       
+
+       <% unless post.tags.count == 0 %>
+
+        <p>Tags:</p>
+        <%post.tags.to_a.each do |t|%>
+        <p><a class="link" href="/tag/<%=t.name%>"><%=t.name%></a></p>
+        <%end%>
+
        <%end%>
+
        <br>
     </div>
   <%end%>

@@ -7,7 +7,7 @@ To run the application, type in the console:
 2. `shotgun`  
 
 
-Contact information juandefelix@yaoo.es
+Contact information juandefelix@yahoo.es
 
 This is a basic blog application. The app saves and displays posts, and also allows you to search by posts.
 The application need to implement the tags editing.

@@ -1,10 +1,11 @@
 ### Anonimous blog
 
-To run the application, type in the console:
+To run the application, type in the console:  
 1. `bundle`  
 2. `rake db:create`  
-2. `rake db:migrate`  
-2. `shotgun`  
+3. `rake db:migrate`  
+4. `shotgun`  
+5. In you browser windown type `127.0.0.1:9393`  
 
 
 Contact information juandefelix@yahoo.es

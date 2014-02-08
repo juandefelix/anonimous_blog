@@ -1,4 +1,6 @@
 <div class="top-nav">
-    <h1 class='floatleft'><a class="navlink" href='/'>Juan's Blog</a></h1>
-    <h1 class='floatright'>" gossip welcome!... "</h1>
+  <% if @user%>
+    <h1 class='floatleft'><a class="navlink" href='/user/<%=@user.id%>'>Juan's Blog</a></h1>
+    <% end%>
+    <a class="navlink floatright" href="/signup" class='floatright'> Sign up </a>
 </div>

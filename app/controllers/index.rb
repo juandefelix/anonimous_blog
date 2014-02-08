@@ -5,6 +5,34 @@ get '/' do
   erb :index
 end
 
+# =============== #
+#    U S E R S    #
+# =============== #
+get '/signup' do
+  erb :signup
+end
+
+post '/user/new' do
+  name = params[:name]
+  email = params[:email]
+  password = params[:password]
+  user = User.create(:name => name,
+              :email => email,
+              :password => password)
+  'Success'
+  session[:user_id = user.id]
+end
+
+get '/user/:id' do
+  "I'm in users"
+end
+
+
+# =============== #
+#    P O S T S    #
+# =============== #
+
+
 post '/create' do
 
   title = params[:title]
@@ -13,7 +41,7 @@ post '/create' do
 
   begin
     #Creating a Post
-    Post.create!(:title => title, :body => body)
+    Post.create!(:title => title, :body => body :user_id = session[:user_id])
     @post_id = Post.last.id
 
     #Creating a Tag

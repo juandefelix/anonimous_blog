@@ -3,8 +3,9 @@
   <%@all.each do |post|%>
     <div class= "post">
       <h3><a href ="/post/<%=post.id%>"><%=post.title%></a></h3>
+      <h4><%=post.user.name%></h4>
        <p><%=post.body%></p>
-       
+
 
        <% unless post.tags.count == 0 %>
 
@@ -12,7 +13,6 @@
         <%post.tags.to_a.each do |t|%>
         <p><a class="link" href="/tag/<%=t.name%>"><%=t.name%></a></p>
         <%end%>
-
        <%end%>
 
        <br>

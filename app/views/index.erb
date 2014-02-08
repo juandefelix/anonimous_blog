@@ -1,5 +1,6 @@
 <div class="container">
   <!-- <a href="/create">Create Users</a><br> -->
+  <%if session[:user_id]%>
   <h3>Create a post</h3>
    <form action="/create" method="post">
     Title: &nbsp;&nbsp;<input type="text" name="title"><br><br>
@@ -9,6 +10,10 @@
     <a class='button' href="/all">See all posts </a>
     <a class='button' href="/find">Search Posts by Tags</a>
   </form>
+
+  <% else %>
+    <h1> Hi, Welcome to Juan's Blog <h1>
+  <% end %>
 
 </div>
 

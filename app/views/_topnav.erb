@@ -1,6 +1,14 @@
 <div class="top-nav">
-  <% if @user%>
-    <h1 class='floatleft'><a class="navlink" href='/user/<%=@user.id%>'>Juan's Blog</a></h1>
-    <% end%>
+  <% if session[:user_id] %>
+    <h1 class='floatleft'>
+      <a class="navlink" href='/user/<%=session[:user_id]%>'>Hi, <%= first(User.find(session[:user_id]).name)%> !</a>
+    </h1>
+      <a class="navlink floatright" href='/logout'>Log out</a>
+
+  <% else %>
+
     <a class="navlink floatright" href="/signup" class='floatright'> Sign up </a>
+    <a class="navlink floatright" href="/userlogin" class='floatright'> Log in </a>
+  <% end %>
+
 </div>

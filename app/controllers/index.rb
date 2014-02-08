@@ -1,7 +1,6 @@
 require 'pry'
 
 get '/' do
-  # Look in app/views/index.erb
   erb :index
 end
 
@@ -12,6 +11,32 @@ get '/signup' do
   erb :signup
 end
 
+get '/logout' do
+  session.clear
+  @error = 'Successfully logged out'
+  erb :error
+end
+
+# renders the template for a user to login
+get '/userlogin' do
+  erb :login
+end
+# returns to the home page with a user logged in
+get '/login' do
+  @email = params[:email]
+  user = User.authenticate(@email, params[:password])
+  # binding.pry
+  if user
+    # successfully authenticated; set up session and redirect
+    session[:user_id] = user.id
+    redirect '/'
+  else
+    # an error occurred, re-render the sign-in form, displaying an error
+    @error = "Invalid email or password."
+    erb :error
+  end
+end
+
 post '/user/new' do
   name = params[:name]
   email = params[:email]
@@ -19,12 +44,13 @@ post '/user/new' do
   user = User.create(:name => name,
               :email => email,
               :password => password)
-  'Success'
-  session[:user_id = user.id]
+  session[:user_id] = user.id
+  redirect '/'
 end
 
 get '/user/:id' do
-  "I'm in users"
+  name =User.find(params[:id]).name
+  "#{name}"'s Profile'
 end
 
 
@@ -41,7 +67,7 @@ post '/create' do
 
   begin
     #Creating a Post
-    Post.create!(:title => title, :body => body :user_id = session[:user_id])
+    Post.create!(:title => title, :body => body, :user_id => session[:user_id])
     @post_id = Post.last.id
 
     #Creating a Tag

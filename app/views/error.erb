@@ -1,5 +1,5 @@
 <div class= "container">
-  <h2><%= params[:error]%></h2>
-  <%= erb :_menu %>
+  <h2><%= params[:error] || @error %></h2>
+  <a class='button' href="/">Home </a>
 </div>
 

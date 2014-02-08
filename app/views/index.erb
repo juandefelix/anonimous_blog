@@ -3,12 +3,18 @@
   <%if session[:user_id]%>
   <h3>Create a post</h3>
    <form action="/create" method="post">
-    Title: &nbsp;&nbsp;<input type="text" name="title"><br><br>
-    Text: &nbsp;&nbsp;<textarea name="body" cols="22"></textarea><br><br>
-    Tags: &nbsp;<input type="text" name="tags"><br><br>
-    <input class='button' type="submit" value="Save this post">
+
+    <div class="align_right">
+      <label>Title:<input type="text" name="title"></label><br><br>
+      <label>Text:<textarea name="body" cols="22"></textarea></label><br><br>
+      <label>Tags: <input type="text" name="tags"></label><br>
+      <input class='button' type="submit" value="Save this post"><br><br>
+      </div>
     <a class='button' href="/all">See all posts </a>
     <a class='button' href="/find">Search Posts by Tags</a>
+
+
+
   </form>
 
   <% else %>

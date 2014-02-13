@@ -18,4 +18,49 @@
     <input class='button' type="submit" value="Create user">
   </form>
 
+  <ul id='  '>
+
+  </ul>
+
 </div>
+
+<!-- <script src ="/js/signup.js"></script> -->
+<script>
+$(document).ready(function(){
+  $("form").submit(function(event){
+    event.preventDefault();
+
+    email = $("input[name='email']").val();
+    password = $("input[name='password']").val();
+
+    $('li').remove();
+
+    if (password.match(/\w{6}/) == null){
+      var errors = "Password must be at least 6 characters"
+      $("#errors").append("<li>" + errors + "</li>");
+    };
+
+    if (password.match(/\d/) == null){
+      var errors = "Password must have at least one numeric charecter"
+      $("#errors").append("<li>" + errors + "</li>");
+    };
+
+
+    if (email.match(/\w+@\w+\.\w+/) == null){
+      var errors = "Must be a valid email address"
+      $("#errors").append("<li>" + errors + "</li>");
+    };
+
+    if(errors === undefined){
+      $.ajax(url:'/user/new',
+             type: "POST",
+             data: $('form').serialize()),
+             success:,
+             form
+             )
+
+    }
+
+  }); //end form
+}) //end document
+</script>

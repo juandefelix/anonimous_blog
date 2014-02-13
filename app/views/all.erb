@@ -1,9 +1,9 @@
 <div class="container">
-  <h2>All Posts</h2>
+  <h2>All Posts by <%= current_user.name%></h2>
   <%@all.each do |post|%>
     <div class= "post">
       <h3><a href ="/post/<%=post.id%>"><%=post.title%></a></h3>
-      <h4><%=post.user.name%></h4>
+      <h4>by <%=post.user.name%></h4>
        <p><%=post.body%></p>
 
 

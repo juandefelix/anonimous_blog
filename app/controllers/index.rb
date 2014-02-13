@@ -102,7 +102,7 @@ get'/post/:id' do
 end
 
 get'/all' do
-  @all = Post.order(:id)
+  @all = current_user.posts.order(:id)
   erb :all
 end
 
